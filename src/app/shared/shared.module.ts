@@ -1,11 +1,17 @@
+// Angular Library
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from './components/navbar/navbar.component';
+
+// Components
+import { SideNavbarComponent } from './components/side-navbar/side-navbar.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
   ],
-  declarations: [NavbarComponent]
+  declarations: [SideNavbarComponent],
+  exports: [
+    SideNavbarComponent,
+  ]
 })
 export class SharedModule { }
