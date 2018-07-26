@@ -1,0 +1,10 @@
+@import "utilities";
+
+.workspace {
+  position: fixed;
+  top: $height-app-header;
+  right: 0;
+  bottom: 0;
+  left: $sidebar-width;
+  overflow-y: auto;
+}
