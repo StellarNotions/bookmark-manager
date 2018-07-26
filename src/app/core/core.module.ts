@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // Modules
-import {SharedModule} from '../shared/shared.module';
+import { FeaturesModule } from '../features/features.module';
 
 // Components
 import { CoreComponent } from './core.component';
@@ -11,7 +11,7 @@ import { CoreComponent } from './core.component';
 @NgModule({
   imports: [
     CommonModule,
-    SharedModule
+    FeaturesModule
   ],
   declarations: [CoreComponent],
   exports: [CoreComponent]
