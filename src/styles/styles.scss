@@ -1,11 +1,15 @@
 // Utilities
 @import "utilities";
 
-// Font Awesome
+// Vendors
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 @import '~@fortawesome/fontawesome-free/scss/regular';
 @import '~@fortawesome/fontawesome-free/scss/solid';
 @import '~@fortawesome/fontawesome-free/scss/brands';
-
-// Vendors
+@import "~normalize.css/normalize.css";
 @import "vendor/gridlex";
+
+// Base
+@import "base/body";
+@import "base/layout";

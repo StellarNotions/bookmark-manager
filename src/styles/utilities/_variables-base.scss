@@ -1,0 +1,49 @@
+// Breakpoints Map
+// ---------------------------------
+// Breakpoints should be unitless but based on pixel values.
+// They will be converted to em when compiled
+$breakpoints: (
+  "tiny": 576,
+  "small": 768,
+  "medium": 960,
+  "large": 1152,
+  "huge": 1344,
+);
+
+// Margin Values
+// ---------------------------------
+$margin-small: rem(8);
+$margin-medium: rem(16);
+$margin-large: rem(32);
+
+// Padding Values
+// ---------------------------------
+$padding-small: rem(10);
+$padding-medium: rem(20);
+$padding-large: rem(30);
+
+// Border Radius Values
+// ---------------------------------
+$radius-sm: rem(4);
+$radius-md: rem(8);
+$radius-lg: rem(12);
+
+// Font Size Values
+// ---------------------------------
+$size-1: rem(36);
+$size-2: rem(32);
+$size-3: rem(28);
+$size-4: rem(24);
+$size-5: rem(20);
+$size-6: rem(18);
+$size-7: rem(16); // paragraph
+$size-8: rem(14);
+$size-9: rem(12);
+
+// Z-Index Values
+// ---------------------------------
+$zindex-base: 0;
+$zindex-fixed: 10;
+$zindex-dropdown: 20;
+$zindex-overlay: 100;
+$zindex-modal: 150;

@@ -1,0 +1,54 @@
+@mixin breakpoint($point, $type: min) {
+  $width: 0em;
+
+  @if map_has_key($breakpoints, $point) {
+    $width: em(map_get($breakpoints, $point));
+  } @else if type-of($point) == number {
+    $width: em($point);
+  }
+
+  @if $type == max {
+    $width: $width - 1;
+  }
+
+  @if $width != null {
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  } @else {
+    @error 'The given point: #{$point} does not work.';
+  }
+}
+
+@mixin center($axis: "both"){
+  position:absolute;
+  @if $axis == "y"{
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  @if $axis == "x"{
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  @if $axis == "both"{
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+  }
+}
+
+@mixin link-colors($link: inherit, $hover: inherit, $active: inherit) {
+  color: $link;
+
+  &:link,
+  &:visited {
+    color: $link;
+  }
+  &:active,
+  &.active {
+    color: $active;
+  }
+  &:hover {
+    color: $hover;
+  }
+}
