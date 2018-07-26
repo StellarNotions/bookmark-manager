@@ -1,17 +1,21 @@
-.default_main {
-  position: fixed;
-  top: $height-app-header;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  overflow-y: auto;
-  background-color: $color-bkgd;
+html, body {
+  background-color: $body-background-color;
+  color: $blue-grey-100;
 }
 
-.icon {
-  display: inline-block;
-  width: rem(36);
-  font-size: rem(20);
-  line-height: rem(36);
-  text-align: center;
+// Changes color of input field placeholder text
+::-webkit-input-placeholder {
+  color: $blue-grey-100 !important;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  color: $blue-grey-100 !important;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  color: $blue-grey-100 !important;
+}
+
+:-ms-input-placeholder {
+  color: $blue-grey-100 !important;
 }
