@@ -1,6 +1,14 @@
-html, body {
-  background-color: $body-background-color;
-  color: $blue-grey-100;
+// Box sizing
+html {
+  box-sizing: border-box;
+}
+
+* {
+  &,
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
 }
 
 // Changes color of input field placeholder text
@@ -18,4 +26,84 @@ html, body {
 
 :-ms-input-placeholder {
   color: $blue-grey-100 !important;
+}
+
+
+// Side Navigation
+.side-navigation {
+  position: fixed;
+  top: $side-navigation__header-height;
+  bottom: 0;
+  left: 0;
+  width: $sidebar-width;
+  background-color: $custom-green;
+}
+
+// Workspace
+.workspace {
+  position: fixed;
+  top: 0;
+  right: $favorites-inbox-width;
+  bottom: 0;
+  left: $sidebar-width;
+  overflow-y: auto;
+  background-color: $custom-grey;
+  padding: 20px 20px 0;
+}
+
+.workspace__content {}
+
+.workspace__content_card {
+  background-color: $custom-light-grey;
+  min-height: 250px;
+  margin-bottom: 35px;
+}
+
+// Favorites
+.favorites {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  height: $favorites-height;
+  width: $favorites-inbox-width;
+  background-color: $custom-green;
+}
+
+.favorites__content {
+  position: fixed;
+  top: 0;
+  bottom: $favorites-height;
+  width: $favorites-inbox-width;
+  padding: 10px;
+}
+
+.favorites__content__card {
+  background-color: $custom-light-grey;
+  height: 100%;
+}
+
+// Inbox
+.inbox {
+  position: fixed;
+  top: $favorites-height;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  width: $favorites-inbox-width;
+  background-color: $custom-green;
+}
+
+.inbox__content {
+  position: fixed;
+  top: $favorites-height;
+  bottom: 0;
+  width: $favorites-inbox-width;
+  padding: 10px;
+}
+
+.inbox__content__card {
+  background-color: $custom-light-grey;
+  height: 100%;
 }

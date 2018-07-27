@@ -7,9 +7,13 @@ import { CommonModule } from '@angular/common';
 
 // Components
 import { WorkspaceComponent } from './workspace/workspace.component';
-import { GlobalHeaderComponent } from './global-header/global-header.component';
 import { SharedModule } from '../shared/shared.module';
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { SideNavigationComponent } from './side-navigation/side-navigation.component';
+import { FavoritesComponent } from './favorites/favorites.component';
+import { InboxComponent } from './inbox/inbox.component';
+import { SideNavigationHeaderComponent } from './side-navigation/side-navigation-header/side-navigation-header.component';
+import { SideNavigationContentComponent } from './side-navigation/side-navigation-content/side-navigation-content.component';
+import { SideNavigationFooterComponent } from './side-navigation/side-navigation-footer/side-navigation-footer.component';
 
 @NgModule({
   imports: [
@@ -17,14 +21,19 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     SharedModule
   ],
   declarations: [
-    GlobalHeaderComponent,
+    SideNavigationComponent,
     WorkspaceComponent,
-    SidebarComponent
+    FavoritesComponent,
+    InboxComponent,
+    SideNavigationHeaderComponent,
+    SideNavigationContentComponent,
+    SideNavigationFooterComponent
   ],
   exports: [
-    GlobalHeaderComponent,
-    SidebarComponent,
-    WorkspaceComponent
+    SideNavigationComponent,
+    WorkspaceComponent,
+    FavoritesComponent,
+    InboxComponent
   ]
 })
 export class FeaturesModule { }

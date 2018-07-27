@@ -10,10 +10,6 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 
 @import "~normalize.css/normalize.css";
 
-@import "vendor/bulma/bulma";
-@import "vendor/bulma/custom-initial-variables";
-@import "vendor/bulma/custom-derived-variables";
-@import "vendor/bulma/custom-generic-variables";
-
 // Base
+@import "base/body";
 @import "base/layout";
