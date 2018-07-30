@@ -18,7 +18,7 @@
       </li>
 
       <app-side-navigation-category
-        *ngIf="category.subcategories.length !== 0"
+        *ngIf="category.subcategories.length !== 0 && category.showSubcategories"
         [parentCategory]="category"
         [isSubSubCategories]="true">
       </app-side-navigation-category>
@@ -37,7 +37,7 @@
     </ng-template>
 
     <app-side-navigation-category
-      *ngIf="category.subcategories.length !== 0 && !isSubSubCategories"
+      *ngIf="category.subcategories.length !== 0 && !isSubSubCategories && category.showSubcategories"
       [parentCategory]="category"
       [isSubSubCategories]="true">
     </app-side-navigation-category>
