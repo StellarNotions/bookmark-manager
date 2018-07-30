@@ -3,4 +3,6 @@
 .side-navigation__content_card {
   background-color: $custom-light-grey;
   height: 100%;
+  overflow-x: scroll;
+  white-space: nowrap;
 }

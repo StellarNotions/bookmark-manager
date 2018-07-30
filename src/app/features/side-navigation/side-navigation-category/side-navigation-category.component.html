@@ -1,29 +1,45 @@
 <ng-content></ng-content>
 
-<li *ngFor="let category of categories; let categoryIndex = index" class="subcategory">
-  <button *ngIf="!isSubSubCategories; else subSubcategory" class="no-style-button categoryName">
-    {{ category.categoryName }} * {{ categoryIndex }}
-  </button>
+<ng-container *ngIf="parentCategory.showSubcategories">
+  <li *ngFor="let category of parentCategory.subcategories">
+    <ul *ngIf="isSubSubCategories; else subcategory">
+      <li>
+        <button
+          (click)="category.showSubcategories = !category.showSubcategories"
+          class="no-style-button categoryName">
+              <span class="icon is-small">
+                <i class="far" [ngClass]="category.showSubcategories ? 'fa-folder-open' : 'fa-folder'"></i>
+              </span>
 
-  <ng-template #subSubcategory>
-    <ul>
-      <li class="subSubcategory">
-        <button class="no-style-button categoryName">
-        {{ category.categoryName }} # {{ categoryIndex }}
+          <span>
+                {{ category.categoryName }}
+              </span>
         </button>
       </li>
 
       <app-side-navigation-category
         *ngIf="category.subcategories.length !== 0"
-        [categories]="category.subcategories"
+        [parentCategory]="category"
         [isSubSubCategories]="true">
       </app-side-navigation-category>
     </ul>
-  </ng-template>
 
-  <app-side-navigation-category
-    *ngIf="category.subcategories.length !== 0 && !isSubSubCategories"
-    [categories]="category.subcategories"
-    [isSubSubCategories]="true">
-  </app-side-navigation-category>
-</li>
+    <ng-template #subcategory>
+      <button
+        (click)="category.showSubcategories = !category.showSubcategories"
+        class="no-style-button categoryName">
+      <span class="icon is-small">
+        <i class="far" [ngClass]="category.showSubcategories ? 'fa-folder-open' : 'fa-folder'"></i>
+      </span>
+
+        <span>{{ category.categoryName }}</span>
+      </button>
+    </ng-template>
+
+    <app-side-navigation-category
+      *ngIf="category.subcategories.length !== 0 && !isSubSubCategories"
+      [parentCategory]="category"
+      [isSubSubCategories]="true">
+    </app-side-navigation-category>
+  </li>
+</ng-container>
