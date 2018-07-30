@@ -14,6 +14,5 @@ export class SideNavigationCategoryComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.parentCategory.subcategories);
   }
 }
