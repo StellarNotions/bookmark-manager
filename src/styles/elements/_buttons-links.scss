@@ -1,0 +1,13 @@
+.no-style-button {
+  background: none;
+  border: none;
+
+  &:active {
+    border: none;
+  }
+
+  &:focus {
+    border: none;
+    outline: none;
+  }
+}
