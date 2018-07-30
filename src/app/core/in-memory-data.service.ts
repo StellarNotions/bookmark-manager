@@ -15,7 +15,21 @@ export class InMemoryDataService implements InMemoryDbService {
               {
                 categoryName: 'Documentation',
                 showSubcategories: false,
-                subcategories: [],
+                subcategories: [
+                  {
+                    categoryName: 'Test',
+                    showSubcategories: false,
+                    subcategories: [
+                      {
+                        categoryName: 'Test 2',
+                        showSubcategories: false,
+                        subcategories: [],
+                        bookmarks: []
+                      },
+                    ],
+                    bookmarks: []
+                  },
+                ],
                 bookmarks: [
                   {
                     name: 'Angular - Docs',
