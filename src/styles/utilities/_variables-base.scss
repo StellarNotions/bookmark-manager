@@ -1,15 +1,3 @@
-// Breakpoints Map
-// ---------------------------------
-// Breakpoints should be unitless but based on pixel values.
-// They will be converted to em when compiled
-$breakpoints: (
-  "tiny": 576,
-  "small": 768,
-  "medium": 960,
-  "large": 1152,
-  "huge": 1344,
-);
-
 // Margin Values
 // ---------------------------------
 $margin-small: rem(8);

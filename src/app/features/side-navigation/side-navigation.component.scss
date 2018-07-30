@@ -1,0 +1,28 @@
+@import "utilities";
+
+.side-navigation__header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: $side-navigation__header-height;
+  width: $sidebar-width;
+  background-color: $custom-dark-blue;
+}
+
+.side-navigation__content {
+  position: fixed;
+  top: $side-navigation__header-height;
+  bottom: $side-navigation__footer-height;
+  left: 0;
+  width: $sidebar-width;
+  padding: 10px;
+}
+
+.side-navigation__footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: $side-navigation__footer-height;
+  width: $sidebar-width;
+  background-color: $custom-dark-blue;
+}

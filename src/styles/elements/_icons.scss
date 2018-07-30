@@ -1,0 +1,24 @@
+.icon {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  height: rem(36);
+  width: rem(36);
+  font-size: rem(24);
+
+  // Sizes
+  &.is-small {
+    height: rem(24);
+    width: rem(24);
+    font-size: rem(16);
+  }
+
+  &.is-large {
+    height: rem(48);
+    width: rem(48);
+    font-size: rem(36);
+  }
+
+  // Colors
+
+}
