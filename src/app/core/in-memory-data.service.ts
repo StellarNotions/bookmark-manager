@@ -23,7 +23,35 @@ export class InMemoryDataService implements InMemoryDbService {
                       {
                         categoryName: 'Test 2',
                         showSubcategories: false,
-                        subcategories: [],
+                        subcategories: [
+                          {
+                            categoryName: 'Test 3',
+                            showSubcategories: false,
+                            subcategories: [
+                              {
+                                categoryName: 'Test 4',
+                                showSubcategories: false,
+                                subcategories: [
+                                  {
+                                    categoryName: 'Test 5',
+                                    showSubcategories: false,
+                                    subcategories: [
+                                      {
+                                        categoryName: 'Test 6',
+                                        showSubcategories: false,
+                                        subcategories: [],
+                                        bookmarks: []
+                                      },
+                                    ],
+                                    bookmarks: []
+                                  },
+                                ],
+                                bookmarks: []
+                              },
+                            ],
+                            bookmarks: []
+                          },
+                        ],
                         bookmarks: []
                       },
                     ],
@@ -119,6 +147,13 @@ export class InMemoryDataService implements InMemoryDbService {
             ]
           }
         ],
+        bookmarks: []
+      },
+      {
+        id: 3,
+        categoryName: 'YouTube Vids',
+        showSubcategories: false,
+        subcategories: [],
         bookmarks: []
       }
     ];
