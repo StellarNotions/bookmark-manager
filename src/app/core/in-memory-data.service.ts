@@ -2,17 +2,20 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
-    const bookmarks = [
+    const categories = [
       {
         id: 1,
-        root: 'Development',
-        sub: [
+        showSubcategories: false,
+        categoryName: 'Development',
+        subcategories: [
           {
-            root: 'JavaScript',
-            sub: [
+            categoryName: 'JavaScript',
+            showSubcategories: false,
+            subcategories: [
               {
-                root: 'Documentation',
-                sub: [],
+                categoryName: 'Documentation',
+                showSubcategories: false,
+                subcategories: [],
                 bookmarks: [
                   {
                     name: 'Angular - Docs',
@@ -26,34 +29,40 @@ export class InMemoryDataService implements InMemoryDbService {
                 ]
               },
               {
-                root: 'Libraries',
-                sub: [],
+                categoryName: 'Libraries',
+                showSubcategories: false,
+                subcategories: [],
                 bookmarks: []
               },
               {
-                root: 'Frameworks',
-                sub: [],
+                categoryName: 'Frameworks',
+                showSubcategories: false,
+                subcategories: [],
                 bookmarks: []
               }
             ],
             bookmarks: []
           },
           {
-            root: 'Python',
-            sub: [],
+            categoryName: 'Python',
+            showSubcategories: false,
+            subcategories: [],
             bookmarks: []
           },
           {
-            root: 'Haskell',
-            sub: [
+            categoryName: 'Haskell',
+            showSubcategories: false,
+            subcategories: [
               {
-                root: 'Documentation',
-                sub: [],
+                categoryName: 'Documentation',
+                showSubcategories: false,
+                subcategories: [],
                 bookmarks: []
               },
               {
-                root: 'Tutorials',
-                sub: [],
+                categoryName: 'Tutorials',
+                showSubcategories: false,
+                subcategories: [],
                 bookmarks: []
               }
             ],
@@ -74,19 +83,23 @@ export class InMemoryDataService implements InMemoryDbService {
       },
       {
         id: 2,
-        root: 'Blockchain',
-        sub: [
+        categoryName: 'Blockchain',
+        showSubcategories: false,
+        subcategories: [
           {
-            root: 'ETH',
-            sub: [
+            categoryName: 'ETH',
+            showSubcategories: false,
+            subcategories: [
               {
-                root: 'Documentation',
-                sub: [],
+                categoryName: 'Documentation',
+                showSubcategories: false,
+                subcategories: [],
                 bookmarks: []
               },
               {
-                root: 'Faucets',
-                sub: [],
+                categoryName: 'Faucets',
+                showSubcategories: false,
+                subcategories: [],
                 bookmarks: []
               }
             ]
@@ -96,6 +109,6 @@ export class InMemoryDataService implements InMemoryDbService {
       }
     ];
 
-    return {bookmarks};
+    return {categories};
   }
 }
