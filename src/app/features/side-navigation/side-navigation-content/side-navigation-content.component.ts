@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Category} from '../../../core/Category';
 
 @Component({
   selector: 'app-side-navigation-content',
@@ -6,15 +7,19 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./side-navigation-content.component.scss']
 })
 export class SideNavigationContentComponent implements OnInit {
-  @Input('bookmarks') bookmarks: {}[];
-  showChildren = false;
+  @Input('categories') categories: Category[];
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  toggleChildren() {
-    this.showChildren = !this.showChildren;
+  toggleCategoryChildren(e: MouseEvent, index: number) {
+    this.categories[index].showSubcategories = !this.categories[index].showSubcategories;
+  }
+
+  toggleSubcategoryChildren(e: MouseEvent, categoryIndex: number, subcategoryIndex: number) {
+    this.categories[categoryIndex].subcategories[subcategoryIndex].showSubcategories =
+      !this.categories[categoryIndex].subcategories[subcategoryIndex].showSubcategories;
   }
 }

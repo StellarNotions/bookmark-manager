@@ -1,0 +1,92 @@
+<!--<span *ngFor="let category of categories; let categoryIndex = index">-->
+  <!--<li class="root" (click)="toggleCategoryChildren($event, categoryIndex)">-->
+    <!--<button class="no-style-button categoryName">-->
+    <!--{{ category.categoryName }}-->
+    <!--</button>-->
+  <!--</li>-->
+  <!---->
+  <!--<span *ngIf="category.showSubcategories">-->
+    <!--<span *ngFor="let subcategory of category.subcategories; let subcategoryIndex = index">-->
+      <!---->
+      <!--<li>-->
+        <!--<span (click)="toggleSubcategoryChildren($event, categoryIndex, subcategoryIndex)">-->
+          <!--<button class="no-style-button categoryName">-->
+          <!--{{ subcategory.categoryName }}-->
+          <!--</button>-->
+        <!--</span>-->
+      <!---->
+        <!--<ul *ngIf="subcategory.showSubcategories">-->
+          <!--<li *ngFor="let subSubcategory of subcategory.subcategories">-->
+            <!--<button class="no-style-button categoryName">-->
+            <!--{{ subSubcategory.categoryName }}-->
+            <!--</button>-->
+          <!--</li>-->
+        <!--</ul>-->
+      <!--</li>-->
+    <!--</span>-->
+  <!--</span>-->
+<!--</span>-->
+
+<!--<span *ngFor="let category of categories; let categoryIndex = index">-->
+<!--<li class="root">-->
+<!--<button class="no-style-button categoryName">-->
+<!--{{ category.categoryName }}-->
+<!--</button>-->
+<!--</li>-->
+
+<!--<span>-->
+<!--<span *ngFor="let subcategory of category.subcategories; let subcategoryIndex = index">-->
+<!--<li>-->
+<!--<span>-->
+<!--<button class="no-style-button categoryName">-->
+<!--{{ subcategory.categoryName }}-->
+<!--</button>-->
+<!--</span>-->
+
+<!--<ul>-->
+<!--<li *ngFor="let subSubcategory of subcategory.subcategories">-->
+<!--<button class="no-style-button categoryName">-->
+<!--{{ subSubcategory.categoryName }}-->
+<!--</button>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</li>-->
+<!--</span>-->
+<!--</span>-->
+<!--</span>-->
+
+<ng-content></ng-content>
+
+<ng-container *ngFor="let category of categories; let categoryIndex = index">
+  <li class="subcategory">
+    <ng-container *ngIf="!isSubSubCategories; else subSubcategory">
+      <button class="no-style-button categoryName">
+        {{ category.categoryName }} * {{ categoryIndex }}
+      </button>
+    </ng-container>
+
+    <ng-template #subSubcategory>
+      <ul>
+        <li class="subSubcategory">
+          <button class="no-style-button categoryName">
+          {{ category.categoryName }} # {{ categoryIndex }}
+          </button>
+        </li>
+
+        <ng-container *ngIf="category.subcategories.length !== 0">
+          <app-side-navigation-category
+            [categories]="category.subcategories"
+            [isSubSubCategories]="true">
+          </app-side-navigation-category>
+        </ng-container>
+      </ul>
+    </ng-template>
+
+    <ng-container *ngIf="category.subcategories.length !== 0 && !isSubSubCategories">
+      <app-side-navigation-category
+        [categories]="category.subcategories"
+        [isSubSubCategories]="true">
+      </app-side-navigation-category>
+    </ng-container>
+  </li>
+</ng-container>
