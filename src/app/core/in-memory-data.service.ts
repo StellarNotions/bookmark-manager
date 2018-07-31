@@ -2,17 +2,90 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
-    const bookmarks = [
+    const categories = [
       {
         id: 1,
-        root: 'Development',
-        sub: [
+        label: 'Development',
+        expanded: false,
+        children: [
           {
-            root: 'JavaScript',
-            sub: [
+            label: 'JavaScript',
+            expanded: false,
+            children: [
               {
-                root: 'Documentation',
-                sub: [],
+                label: 'Documentation',
+                expanded: false,
+                children: [
+                  {
+                    label: 'Test',
+                    expanded: false,
+                    children: [
+                      {
+                        label: 'Test 2',
+                        expanded: false,
+                        children: [
+                          {
+                            label: 'Test 3',
+                            expanded: false,
+                            children: [
+                              {
+                                label: 'Test 4',
+                                expanded: false,
+                                children: [
+                                  {
+                                    label: 'Test 5',
+                                    expanded: false,
+                                    children: [
+                                      {
+                                        label: 'Test 6',
+                                        expanded: false,
+                                        children: [
+                                          {
+                                            label: 'Test 7',
+                                            expanded: false,
+                                            children: [
+                                              {
+                                                label: 'Test 8',
+                                                expanded: false,
+                                                children: [
+                                                  {
+                                                    label: 'Test 9',
+                                                    expanded: false,
+                                                    children: [
+                                                      {
+                                                        label: 'Test 10',
+                                                        expanded: false,
+                                                        children: [],
+                                                        bookmarks: []
+                                                      },
+                                                    ],
+                                                    bookmarks: []
+                                                  },
+                                                ],
+                                                bookmarks: []
+                                              },
+                                            ],
+                                            bookmarks: []
+                                          },
+                                        ],
+                                        bookmarks: []
+                                      },
+                                    ],
+                                    bookmarks: []
+                                  },
+                                ],
+                                bookmarks: []
+                              },
+                            ],
+                            bookmarks: []
+                          },
+                        ],
+                        bookmarks: []
+                      },
+                    ],
+                    bookmarks: []
+                  },
+                ],
                 bookmarks: [
                   {
                     name: 'Angular - Docs',
@@ -26,34 +99,40 @@ export class InMemoryDataService implements InMemoryDbService {
                 ]
               },
               {
-                root: 'Libraries',
-                sub: [],
+                label: 'Libraries',
+                expanded: false,
+                children: [],
                 bookmarks: []
               },
               {
-                root: 'Frameworks',
-                sub: [],
+                label: 'Frameworks',
+                expanded: false,
+                children: [],
                 bookmarks: []
               }
             ],
             bookmarks: []
           },
           {
-            root: 'Python',
-            sub: [],
+            label: 'Python',
+            expanded: false,
+            children: [],
             bookmarks: []
           },
           {
-            root: 'Haskell',
-            sub: [
+            label: 'Haskell',
+            expanded: false,
+            children: [
               {
-                root: 'Documentation',
-                sub: [],
+                label: 'Documentation',
+                expanded: false,
+                children: [],
                 bookmarks: []
               },
               {
-                root: 'Tutorials',
-                sub: [],
+                label: 'Tutorials',
+                expanded: false,
+                children: [],
                 bookmarks: []
               }
             ],
@@ -74,28 +153,39 @@ export class InMemoryDataService implements InMemoryDbService {
       },
       {
         id: 2,
-        root: 'Blockchain',
-        sub: [
+        label: 'Blockchain',
+        expanded: false,
+        children: [
           {
-            root: 'ETH',
-            sub: [
+            label: 'ETH',
+            expanded: false,
+            children: [
               {
-                root: 'Documentation',
-                sub: [],
+                label: 'Documentation',
+                expanded: false,
+                children: [],
                 bookmarks: []
               },
               {
-                root: 'Faucets',
-                sub: [],
+                label: 'Faucets',
+                expanded: false,
+                children: [],
                 bookmarks: []
               }
             ]
           }
         ],
         bookmarks: []
+      },
+      {
+        id: 3,
+        label: 'YouTube Vids',
+        expanded: false,
+        children: [],
+        bookmarks: []
       }
     ];
 
-    return {bookmarks};
+    return {categories};
   }
 }

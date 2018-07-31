@@ -1,0 +1,13 @@
+<div class="file-tree-container">
+  <ul *ngIf="value">
+    <app-file-tree-node
+      *ngFor="let node of value;let firstChild=first;let lastChild=last; let index=index"
+      [node]="node"
+      [firstChild]="firstChild"
+      [lastChild]="lastChild"
+      [index]="index">
+    </app-file-tree-node>
+  </ul>
+
+  <!--<div class="ui-tree-empty-message" *ngIf="!loading && !value">{{emptyMessage}}</div>-->
+</div>

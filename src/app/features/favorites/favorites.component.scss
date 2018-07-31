@@ -1,3 +1,18 @@
 @import "utilities";
 
+.favorites__content {
+  text-align: center;
+}
+
+.favorite__content__icon {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  margin: 0 auto 10px auto;
+}
+
+.favorite__content__icon__image {
+  max-width: 100%;
+}
+
 

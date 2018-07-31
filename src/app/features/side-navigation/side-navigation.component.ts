@@ -7,7 +7,7 @@ import {BookmarksService} from '../../core/bookmarks.service';
   styleUrls: ['./side-navigation.component.scss']
 })
 export class SideNavigationComponent implements OnInit {
-  bookmarks: {}[];
+  categories: {}[];
 
   constructor(private bookmarksService: BookmarksService) { }
 
@@ -16,9 +16,8 @@ export class SideNavigationComponent implements OnInit {
   }
 
   getBookmarks(): void {
-    this.bookmarksService.getBookmarks().subscribe((bookmarks) => {
-      this.bookmarks = bookmarks;
-      console.log(bookmarks);
+    this.bookmarksService.getCategories().subscribe((categories) => {
+      this.categories = categories;
     });
   }
 }

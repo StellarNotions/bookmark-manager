@@ -9,7 +9,7 @@ import { MessageService } from './message.service';
   providedIn: 'root'
 })
 export class BookmarksService {
-  private bookmarksUrl = 'api/bookmarks';
+  private categoriesUrl = 'api/categories';
 
   constructor(private messageService: MessageService, private http: HttpClient) { }
 
@@ -32,10 +32,10 @@ export class BookmarksService {
     };
   }
 
-  getBookmarks(): Observable<{}[]> {
-    return this.http.get<{}[]>(this.bookmarksUrl).pipe(
-      tap(bookmarks => this.log('fetched bookmarks')),
-      catchError(this.handleError('getBookmarks', []))
+  getCategories(): Observable<{}[]> {
+    return this.http.get<{}[]>(this.categoriesUrl).pipe(
+      tap(categories => this.log('fetched categories')),
+      catchError(this.handleError('getCategories', []))
     );
   }
 }

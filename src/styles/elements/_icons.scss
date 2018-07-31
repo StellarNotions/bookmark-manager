@@ -19,6 +19,15 @@
     font-size: rem(36);
   }
 
-  // Colors
+  &.is-clickable{
+    height: rem(36);
+    width: rem(36);
+    font-size: rem(16);
+    cursor: pointer;
+  }
 
+  // Colors
+  &.is-white {
+    color: $custom-white-v2;
+  }
 }

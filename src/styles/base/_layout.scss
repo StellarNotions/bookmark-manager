@@ -28,82 +28,95 @@ html {
   color: $blue-grey-100 !important;
 }
 
+// Site Header
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: $site-menu-width;
+  height: $site-header-footer-height;
+  background-color: $site-background-color;
+}
+
+// Favorites
+.favorites {
+  position: fixed;
+  top: $site-header-footer-height;
+  left: 0;
+  bottom: $site-header-footer-height;
+  overflow: hidden;
+  width: $favorites-width;
+  background-color: $site-background-color;
+}
+
+.favorites__content {
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+}
 
 // Side Navigation
 .side-navigation {
   position: fixed;
-  top: $side-navigation__header-height;
-  bottom: 0;
-  left: 0;
+  top: $site-header-footer-height;
+  bottom: $site-header-footer-height;
+  left: $favorites-width;
   width: $sidebar-width;
-  background-color: $custom-green;
+  background-color: $site-background-color;
 }
 
 // Workspace
 .workspace {
   position: fixed;
   top: 0;
-  right: $favorites-inbox-width;
+  right: 0;
   bottom: 0;
-  left: $sidebar-width;
+  left: $site-menu-width;
   overflow-y: auto;
-  background-color: $custom-grey;
   padding: 20px 20px 0;
 }
 
 .workspace__content {}
 
 .workspace__content_card {
-  background-color: $custom-light-grey;
   min-height: 250px;
   margin-bottom: 35px;
-}
-
-// Favorites
-.favorites {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  overflow: hidden;
-  height: $favorites-height;
-  width: $favorites-inbox-width;
-  background-color: $custom-green;
-}
-
-.favorites__content {
-  position: fixed;
-  top: 0;
-  bottom: $favorites-height;
-  width: $favorites-inbox-width;
-  padding: 10px;
-}
-
-.favorites__content__card {
-  background-color: $custom-light-grey;
-  height: 100%;
+  border-radius: 5px;
+  background-color: darker($custom-light-tan-v2, 5);
+  color: darker($custom-black-v2, 5);
 }
 
 // Inbox
-.inbox {
-  position: fixed;
-  top: $favorites-height;
-  right: 0;
-  bottom: 0;
-  overflow: hidden;
-  width: $favorites-inbox-width;
-  background-color: $custom-green;
-}
+//.inbox {
+//  position: fixed;
+//  top: $favorites-height;
+//  right: 0;
+//  bottom: 0;
+//  overflow: hidden;
+//  width: $favorites-inbox-width;
+//  background-color: $custom-green;
+//}
+//
+//.inbox__content {
+//  position: fixed;
+//  top: $favorites-height;
+//  bottom: 0;
+//  width: $favorites-inbox-width;
+//  padding: 10px;
+//}
+//
+//.inbox__content__card {
+//  background-color: $custom-light-grey;
+//  height: 100%;
+//}
 
-.inbox__content {
+.site-footer {
   position: fixed;
-  top: $favorites-height;
+  left: 0;
   bottom: 0;
-  width: $favorites-inbox-width;
-  padding: 10px;
-}
-
-.inbox__content__card {
-  background-color: $custom-light-grey;
-  height: 100%;
+  width: $site-menu-width;
+  height: $site-header-footer-height;
+  background-color: $site-background-color;
 }

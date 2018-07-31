@@ -1,21 +1,5 @@
-<div class="side-navigation__content_card">
-  <div class="file-tree">
-    <ul>
-      <span *ngFor="let bookmark of bookmarks">
-        <li class="root">
-          {{ bookmark.root }}
-        </li>
+<!--<div class="side-navigation__content_card">-->
+  <!--<app-file-tree [value]="categories"></app-file-tree>-->
+<!--</div>-->
 
-        <li *ngFor="let sub of bookmark.sub">
-          {{ sub.root }}
-
-          <ul>
-            <li *ngFor="let secondarySub of sub.sub">
-              {{ secondarySub.root }}
-            </li>
-          </ul>
-        </li>
-      </span>
-    </ul>
-  </div>
-</div>
+<app-file-tree [value]="categories"></app-file-tree>
