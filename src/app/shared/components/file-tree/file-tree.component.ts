@@ -1,4 +1,4 @@
-import {Component, ElementRef, EventEmitter, Input, OnInit, Output, TemplateRef} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { FileTreeNode } from '../../../core/types/file-tree-node';
 
 @Component({
@@ -12,23 +12,17 @@ export class FileTreeComponent implements OnInit {
   @Input() selectionMode: string;
   @Input() selection: any;
   @Output() selectionChange: EventEmitter<any> = new EventEmitter();
-  @Output() onNodeSelect: EventEmitter<any> = new EventEmitter();
-  @Output() onNodeUnselect: EventEmitter<any> = new EventEmitter();
-  @Output() onNodeExpand: EventEmitter<any> = new EventEmitter();
-  @Output() onNodeCollapse: EventEmitter<any> = new EventEmitter();
-  @Output() onNodeContextMenuSelect: EventEmitter<any> = new EventEmitter();
-  @Input() style: any;
-  @Input() styleClass: string;
+  @Output() nodeSelected: EventEmitter<any> = new EventEmitter();
+  @Output() nodeUnselected: EventEmitter<any> = new EventEmitter();
+  @Output() nodeExpanded: EventEmitter<any> = new EventEmitter();
+  @Output() nodeCollapsed: EventEmitter<any> = new EventEmitter();
+  @Output() nodeContextMenuSelected: EventEmitter<any> = new EventEmitter();
   @Input() contextMenu: any;
-  @Input() layout = 'vertical';
-  @Input() draggableScope: any;
   @Input() metaKeySelection = true;
   @Input() propagateSelectionUp = true;
   @Input() propagateSelectionDown = true;
   @Input() loading: boolean;
   @Input() emptyMessage = 'No records found';
-
-  public templateMap: any;
 
   public nodeTouched: boolean;
 
@@ -63,7 +57,7 @@ export class FileTreeComponent implements OnInit {
           }
 
           this.selectionChange.emit(this.selection);
-          this.onNodeUnselect.emit({originalEvent: event, node: node});
+          this.nodeUnselected.emit({originalEvent: event, node: node});
         } else {
           if (this.propagateSelectionDown) {
             this.propagateDown(node, true);
@@ -76,7 +70,7 @@ export class FileTreeComponent implements OnInit {
           }
 
           this.selectionChange.emit(this.selection);
-          this.onNodeSelect.emit({originalEvent: event, node: node});
+          this.nodeSelected.emit({originalEvent: event, node: node});
         }
       } else {
         const metaSelection = this.nodeTouched ? false : this.metaKeySelection;
@@ -92,7 +86,7 @@ export class FileTreeComponent implements OnInit {
               this.selectionChange.emit(this.selection);
             }
 
-            this.onNodeUnselect.emit({originalEvent: event, node: node});
+            this.nodeUnselected.emit({originalEvent: event, node: node});
           } else {
             if (this.isSingleSelectionMode()) {
               this.selectionChange.emit(node);
@@ -102,24 +96,24 @@ export class FileTreeComponent implements OnInit {
               this.selectionChange.emit(this.selection);
             }
 
-            this.onNodeSelect.emit({originalEvent: event, node: node});
+            this.nodeSelected.emit({originalEvent: event, node: node});
           }
         } else {
           if (this.isSingleSelectionMode()) {
             if (selected) {
               this.selection = null;
-              this.onNodeUnselect.emit({originalEvent: event, node: node});
+              this.nodeUnselected.emit({originalEvent: event, node: node});
             } else {
               this.selection = node;
-              this.onNodeSelect.emit({originalEvent: event, node: node});
+              this.nodeSelected.emit({originalEvent: event, node: node});
             }
           } else {
             if (selected) {
               this.selection = this.selection.filter((val, i) => i !== index);
-              this.onNodeUnselect.emit({originalEvent: event, node: node});
+              this.nodeUnselected.emit({originalEvent: event, node: node});
             } else {
               this.selection = [...this.selection || [], node];
-              this.onNodeSelect.emit({originalEvent: event, node: node});
+              this.nodeSelected.emit({originalEvent: event, node: node});
             }
           }
 
@@ -136,27 +130,30 @@ export class FileTreeComponent implements OnInit {
   }
 
   onNodeRightClick(event: MouseEvent, node: FileTreeNode) {
-    if (this.contextMenu) {
-      const eventTarget = (<Element> event.target);
+    console.log('right clicked!');
+    event.preventDefault();
 
-      if (eventTarget.className && eventTarget.className.indexOf('ui-tree-toggler') === 0) {
-        return;
-      } else {
-        const index = this.findIndexInSelection(node);
-        const selected = (index >= 0);
-
-        if (!selected) {
-          if (this.isSingleSelectionMode()) {
-            this.selectionChange.emit(node);
-          } else {
-            this.selectionChange.emit([node]);
-          }
-        }
-
-        this.contextMenu.show(event);
-        this.onNodeContextMenuSelect.emit({originalEvent: event, node: node});
-      }
-    }
+    // if (this.contextMenu) {
+    //   const eventTarget = (<Element> event.target);
+    //
+    //   if (eventTarget.className && eventTarget.className.indexOf('ui-tree-toggler') === 0) {
+    //     return;
+    //   } else {
+    //     const index = this.findIndexInSelection(node);
+    //     const selected = (index >= 0);
+    //
+    //     if (!selected) {
+    //       if (this.isSingleSelectionMode()) {
+    //         this.selectionChange.emit(node);
+    //       } else {
+    //         this.selectionChange.emit([node]);
+    //       }
+    //     }
+    //
+    //     this.contextMenu.show(event);
+    //     this.onNodeContextMenuSelect.emit({originalEvent: event, node: node});
+    //   }
+    // }
   }
 
   findIndexInSelection(node: FileTreeNode) {

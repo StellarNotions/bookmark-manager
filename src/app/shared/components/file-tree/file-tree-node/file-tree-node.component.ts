@@ -1,4 +1,4 @@
-import { Component, forwardRef, Inject, Input, OnInit } from '@angular/core';
+import {Component, EventEmitter, forwardRef, Inject, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChange} from '@angular/core';
 
 import { FileTreeNode } from '../../../../core/types/file-tree-node';
 import {FileTreeComponent} from '../file-tree.component';
@@ -8,7 +8,7 @@ import {FileTreeComponent} from '../file-tree.component';
   templateUrl: './file-tree-node.component.html',
   styleUrls: ['./file-tree-node.component.scss']
 })
-export class FileTreeNodeComponent implements OnInit {
+export class FileTreeNodeComponent implements OnInit, OnDestroy {
 
   static ICON_CLASS = 'fas';
 
@@ -23,6 +23,11 @@ export class FileTreeNodeComponent implements OnInit {
 
   ngOnInit() {
     this.node.parent = this.parentNode;
+  }
+
+  ngOnDestroy() {
+    // Closes child nodes when parent is closed
+    this.node.expanded = false;
   }
 
   getIcon() {
@@ -43,9 +48,9 @@ export class FileTreeNodeComponent implements OnInit {
 
   toggle(event: Event) {
     if (this.node.expanded) {
-      this.tree.onNodeCollapse.emit({originalEvent: event, node: this.node});
+      this.tree.nodeCollapsed.emit({originalEvent: event, node: this.node});
     } else {
-      this.tree.onNodeExpand.emit({originalEvent: event, node: this.node});
+      this.tree.nodeExpanded.emit({originalEvent: event, node: this.node});
     }
 
     this.node.expanded = !this.node.expanded;
@@ -53,10 +58,6 @@ export class FileTreeNodeComponent implements OnInit {
 
   onNodeClick(event: MouseEvent) {
     this.tree.onNodeClick(event, this.node);
-  }
-
-  onNodeTouchEnd() {
-    this.tree.onNodeTouchEnd();
   }
 
   onNodeRightClick(event: MouseEvent) {
