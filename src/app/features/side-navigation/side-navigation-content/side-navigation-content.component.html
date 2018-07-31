@@ -1,23 +1,3 @@
 <div class="side-navigation__content_card">
-  <div class="file-tree">
-    <ul class="file-tree-list">
-      <app-side-navigation-category
-        *ngFor="let category of categories; let index = index"
-        [parentCategory]="category">
-        <li class="root">
-          <button
-            (click)="toggleCategoryChildren(index)"
-            class="no-style-button categoryName">
-            <span class="icon is-small">
-              <i class="far" [ngClass]="category.showSubcategories ? 'fa-folder-open' : 'fa-folder'"></i>
-            </span>
-
-            <span>
-              {{ category.categoryName }}
-            </span>
-          </button>
-        </li>
-      </app-side-navigation-category>
-    </ul>
-  </div>
+  <app-file-tree [value]="categories"></app-file-tree>
 </div>
