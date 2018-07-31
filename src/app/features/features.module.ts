@@ -13,8 +13,8 @@ import { FavoritesComponent } from './favorites/favorites.component';
 import { InboxComponent } from './inbox/inbox.component';
 import { SideNavigationHeaderComponent } from './side-navigation/side-navigation-header/side-navigation-header.component';
 import { SideNavigationContentComponent } from './side-navigation/side-navigation-content/side-navigation-content.component';
-import { SideNavigationFooterComponent } from './side-navigation/side-navigation-footer/side-navigation-footer.component';
-import { SideNavigationCategoryComponent } from './side-navigation/side-navigation-category/side-navigation-category.component';
+import { SiteHeaderComponent } from './site-header/site-header.component';
+import { SiteFooterComponent } from './site-footer/site-footer.component';
 
 @NgModule({
   imports: [
@@ -28,14 +28,16 @@ import { SideNavigationCategoryComponent } from './side-navigation/side-navigati
     InboxComponent,
     SideNavigationHeaderComponent,
     SideNavigationContentComponent,
-    SideNavigationFooterComponent,
-    SideNavigationCategoryComponent
+    SiteHeaderComponent,
+    SiteFooterComponent,
   ],
   exports: [
+    SiteHeaderComponent,
+    FavoritesComponent,
     SideNavigationComponent,
     WorkspaceComponent,
-    FavoritesComponent,
-    InboxComponent
+    InboxComponent,
+    SiteFooterComponent
   ]
 })
 export class FeaturesModule { }

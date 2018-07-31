@@ -1,7 +1,11 @@
 <div class="favorites">
   <div class="favorites__content">
-    <div class="favorites__content__card">
-      favorites card
+    <div *ngFor="let favicon of favicons" class="favorite__content__icon">
+      <a [href]="favicon.site" target="_blank" rel="noopener noreferrer">
+        <img
+          [src]="favicon.url"
+          class="favorite__content__icon__image">
+      </a>
     </div>
   </div>
 </div>

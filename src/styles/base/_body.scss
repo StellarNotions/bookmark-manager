@@ -1,5 +1,6 @@
 body {
-  background-color: $body-background-color;
+  background-color: lighter($custom-red-v2, 5);
+  color: $custom-white-v2;
   font-family: Roboto, "Helvetica Neue", Arial, sans-serif;
   font-weight: normal;
   line-height: 1;

@@ -27,5 +27,7 @@
   }
 
   // Colors
-
+  &.is-white {
+    color: $custom-white-v2;
+  }
 }
