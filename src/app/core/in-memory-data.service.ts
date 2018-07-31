@@ -39,7 +39,35 @@ export class InMemoryDataService implements InMemoryDbService {
                                       {
                                         label: 'Test 6',
                                         expanded: false,
-                                        children: [],
+                                        children: [
+                                          {
+                                            label: 'Test 7',
+                                            expanded: false,
+                                            children: [
+                                              {
+                                                label: 'Test 8',
+                                                expanded: false,
+                                                children: [
+                                                  {
+                                                    label: 'Test 9',
+                                                    expanded: false,
+                                                    children: [
+                                                      {
+                                                        label: 'Test 10',
+                                                        expanded: false,
+                                                        children: [],
+                                                        bookmarks: []
+                                                      },
+                                                    ],
+                                                    bookmarks: []
+                                                  },
+                                                ],
+                                                bookmarks: []
+                                              },
+                                            ],
+                                            bookmarks: []
+                                          },
+                                        ],
                                         bookmarks: []
                                       },
                                     ],
