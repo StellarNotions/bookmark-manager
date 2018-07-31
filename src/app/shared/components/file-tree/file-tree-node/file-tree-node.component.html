@@ -1,0 +1,28 @@
+<ng-container *ngIf="node">
+  <li>
+    <div
+      (click)="onNodeClick($event)"
+      (contextmenu)="onNodeRightClick($event)"
+      (touchend)="onNodeTouchEnd()"
+      class="file-tree-leaf">
+      <button (click)="toggle($event)" class="no-style-button">
+        <span class="icon is-clickable">
+          <i [ngClass]="node.expanded ? 'far fa-folder-open' : 'far fa-folder'"></i>
+        </span>
+      </button>
+
+        <span class="file-tree-leaf-label">{{ node.label }}</span>
+    </div>
+
+    <ul *ngIf="node.children && node.expanded">
+      <app-file-tree-node
+        *ngFor="let childNode of node.children;let firstChild=first;let lastChild=last;let index=index"
+        [node]="childNode"
+        [parentNode]="node"
+        [firstChild]="firstChild"
+        [lastChild]="lastChild"
+        [index]="index">
+      </app-file-tree-node>
+    </ul>
+  </li>
+</ng-container>

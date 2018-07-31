@@ -5,41 +5,41 @@ export class InMemoryDataService implements InMemoryDbService {
     const categories = [
       {
         id: 1,
-        showSubcategories: false,
-        categoryName: 'Development',
-        subcategories: [
+        label: 'Development',
+        expanded: false,
+        children: [
           {
-            categoryName: 'JavaScript',
-            showSubcategories: false,
-            subcategories: [
+            label: 'JavaScript',
+            expanded: false,
+            children: [
               {
-                categoryName: 'Documentation',
-                showSubcategories: false,
-                subcategories: [
+                label: 'Documentation',
+                expanded: false,
+                children: [
                   {
-                    categoryName: 'Test',
-                    showSubcategories: false,
-                    subcategories: [
+                    label: 'Test',
+                    expanded: false,
+                    children: [
                       {
-                        categoryName: 'Test 2',
-                        showSubcategories: false,
-                        subcategories: [
+                        label: 'Test 2',
+                        expanded: false,
+                        children: [
                           {
-                            categoryName: 'Test 3',
-                            showSubcategories: false,
-                            subcategories: [
+                            label: 'Test 3',
+                            expanded: false,
+                            children: [
                               {
-                                categoryName: 'Test 4',
-                                showSubcategories: false,
-                                subcategories: [
+                                label: 'Test 4',
+                                expanded: false,
+                                children: [
                                   {
-                                    categoryName: 'Test 5',
-                                    showSubcategories: false,
-                                    subcategories: [
+                                    label: 'Test 5',
+                                    expanded: false,
+                                    children: [
                                       {
-                                        categoryName: 'Test 6',
-                                        showSubcategories: false,
-                                        subcategories: [],
+                                        label: 'Test 6',
+                                        expanded: false,
+                                        children: [],
                                         bookmarks: []
                                       },
                                     ],
@@ -71,40 +71,40 @@ export class InMemoryDataService implements InMemoryDbService {
                 ]
               },
               {
-                categoryName: 'Libraries',
-                showSubcategories: false,
-                subcategories: [],
+                label: 'Libraries',
+                expanded: false,
+                children: [],
                 bookmarks: []
               },
               {
-                categoryName: 'Frameworks',
-                showSubcategories: false,
-                subcategories: [],
+                label: 'Frameworks',
+                expanded: false,
+                children: [],
                 bookmarks: []
               }
             ],
             bookmarks: []
           },
           {
-            categoryName: 'Python',
-            showSubcategories: false,
-            subcategories: [],
+            label: 'Python',
+            expanded: false,
+            children: [],
             bookmarks: []
           },
           {
-            categoryName: 'Haskell',
-            showSubcategories: false,
-            subcategories: [
+            label: 'Haskell',
+            expanded: false,
+            children: [
               {
-                categoryName: 'Documentation',
-                showSubcategories: false,
-                subcategories: [],
+                label: 'Documentation',
+                expanded: false,
+                children: [],
                 bookmarks: []
               },
               {
-                categoryName: 'Tutorials',
-                showSubcategories: false,
-                subcategories: [],
+                label: 'Tutorials',
+                expanded: false,
+                children: [],
                 bookmarks: []
               }
             ],
@@ -125,23 +125,23 @@ export class InMemoryDataService implements InMemoryDbService {
       },
       {
         id: 2,
-        categoryName: 'Blockchain',
-        showSubcategories: false,
-        subcategories: [
+        label: 'Blockchain',
+        expanded: false,
+        children: [
           {
-            categoryName: 'ETH',
-            showSubcategories: false,
-            subcategories: [
+            label: 'ETH',
+            expanded: false,
+            children: [
               {
-                categoryName: 'Documentation',
-                showSubcategories: false,
-                subcategories: [],
+                label: 'Documentation',
+                expanded: false,
+                children: [],
                 bookmarks: []
               },
               {
-                categoryName: 'Faucets',
-                showSubcategories: false,
-                subcategories: [],
+                label: 'Faucets',
+                expanded: false,
+                children: [],
                 bookmarks: []
               }
             ]
@@ -151,9 +151,9 @@ export class InMemoryDataService implements InMemoryDbService {
       },
       {
         id: 3,
-        categoryName: 'YouTube Vids',
-        showSubcategories: false,
-        subcategories: [],
+        label: 'YouTube Vids',
+        expanded: false,
+        children: [],
         bookmarks: []
       }
     ];
