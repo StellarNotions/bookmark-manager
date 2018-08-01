@@ -12,4 +12,7 @@ export class SiteHeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  toggle() {
+    console.log('toggled');
+  }
 }

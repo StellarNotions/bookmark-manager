@@ -24,6 +24,10 @@
     width: rem(36);
     font-size: rem(16);
     cursor: pointer;
+
+    &.is-medium {
+      font-size: rem(24);
+    }
   }
 
   // Colors
