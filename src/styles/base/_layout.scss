@@ -76,6 +76,7 @@ html {
   left: $site-menu-width;
   overflow-y: auto;
   padding: 20px 20px 0;
+  background-color: #26262B;
 }
 
 .workspace__content {}
@@ -84,8 +85,7 @@ html {
   min-height: 250px;
   margin-bottom: 35px;
   border-radius: 5px;
-  background-color: darker($custom-light-tan-v2, 5);
-  color: darker($custom-black-v2, 5);
+  background-color: #313238;
 }
 
 // Inbox
